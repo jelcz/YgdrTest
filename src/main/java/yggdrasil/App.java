@@ -22,7 +22,7 @@ public class App {
 
     private static void runNonParallel() {
         long currentTime = System.currentTimeMillis();
-        IntStream.rangeClosed(0, AMOUNT_OF_ROUNDS).forEach(i -> sum = sum.add(new BigDecimal(getResult())));
+        IntStream.range(0, AMOUNT_OF_ROUNDS).forEach(i -> sum = sum.add(new BigDecimal(getResult())));
         long duration = System.currentTimeMillis() - currentTime;
         System.out.println("Duration: " + duration + " ms, result: " + sum
                 .divide(new BigDecimal(AMOUNT_OF_ROUNDS)));
@@ -37,9 +37,9 @@ public class App {
 
     private static void runParallel() {
         long currentTime = System.currentTimeMillis();
-        Thread thread1 = new Thread(() -> IntStream.rangeClosed(0, AMOUNT_OF_ROUNDS/2)
+        Thread thread1 = new Thread(() -> IntStream.range(0, AMOUNT_OF_ROUNDS/2)
                         .forEach(j -> sumPara1 = sumPara1.add(new BigDecimal(getResult()))));
-        Thread thread2 = new Thread(() -> IntStream.rangeClosed(0, AMOUNT_OF_ROUNDS/2)
+        Thread thread2 = new Thread(() -> IntStream.range(0, AMOUNT_OF_ROUNDS/2)
                         .forEach(j -> sumPara2 = sumPara2.add(new BigDecimal(getResult()))));
         thread1.start();
         thread2.start();

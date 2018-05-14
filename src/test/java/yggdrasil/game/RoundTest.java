@@ -40,13 +40,13 @@ public class RoundTest {
 
     private List<Integer> getSampleFinalMoves() {
         List<Integer> finalMoves = new ArrayList<>();
-        IntStream.rangeClosed(0, 1).forEach(finalMoves::add);
+        IntStream.range(0, 2).forEach(finalMoves::add);
         return finalMoves;
     }
 
     private List<Integer> getSampleGameMoves() {
         List<Integer> gameMoves = new ArrayList<>();
-        IntStream.rangeClosed(0, 7).forEach(gameMoves::add);
+        IntStream.range(0, 8).forEach(gameMoves::add);
         return gameMoves;
     }
 
